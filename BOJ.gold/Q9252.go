@@ -1,10 +1,10 @@
-package bojgold
+package main
 
 import (
 	"fmt"
 )
 
-func main() {
+func Q9252() {
 	var str1 string
 	var str2 string
 	// fmt.Scanln(&str1)
