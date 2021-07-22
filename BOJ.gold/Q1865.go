@@ -1,0 +1,5 @@
+package bojgold
+
+func main() {
+
+}
