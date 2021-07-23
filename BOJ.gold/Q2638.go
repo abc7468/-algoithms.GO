@@ -40,8 +40,6 @@ func dfs(row, col int) {
 				touch[nextRow][nextCol]++
 				if touch[nextRow][nextCol] >= 2 {
 					cheeseCnt--
-					fmt.Printf("%d %d", nextRow, nextCol)
-					fmt.Println()
 					board[nextRow][nextCol] = 0
 					visited[nextRow][nextCol] = true
 					if cheeseCnt == 0 {
@@ -53,7 +51,7 @@ func dfs(row, col int) {
 	}
 }
 
-func main() {
+func Q2638() {
 	fmt.Scan(&H, &W)
 	answer := 0
 	scanner := bufio.NewScanner(os.Stdin)
