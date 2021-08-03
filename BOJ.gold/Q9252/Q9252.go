@@ -1,4 +1,4 @@
-package main
+package q9252
 
 import (
 	"fmt"
