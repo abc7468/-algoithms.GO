@@ -12,7 +12,7 @@ const (
 )
 
 var answer string
-var N, M string
+var N, M int
 var combi [max][max]string
 
 func getInt(val byte) int {
@@ -20,40 +20,38 @@ func getInt(val byte) int {
 	return value
 }
 
+func isOlim(val int) bool {
+	if val >= 10 {
+		return true
+	}
+	return false
+}
+
 func calc(n, m string) string {
 	var answer string
 	if len(n) < len(m) {
 		n, m = m, n
 	}
-	//	fmt.Printf("n : %s m : %s\n", n, m)
-
 	long := len(n)
 	short := len(m)
 	var tmp int
 	olim := false
 
-	for i := range n {
-		index := i + 1
+	for i := 1; i <= len(n); i++ {
 		var longVal int
 		var shortVal int
-		if short-index < 0 {
+		if short-i < 0 {
 			shortVal = 0
 		} else {
-			shortVal = getInt(m[short-index])
+			shortVal = getInt(m[short-i])
 		}
-		longVal = getInt(n[long-index])
+		longVal = getInt(n[long-i])
 		tmp = shortVal + longVal
 		if olim {
 			tmp++
 		}
-		if tmp >= 10 {
-			olim = true
-			answer = strconv.Itoa(tmp%10) + answer
-
-		} else {
-			answer = strconv.Itoa(tmp) + answer
-			olim = false
-		}
+		olim = isOlim(tmp)
+		answer = strconv.Itoa(tmp%10) + answer
 	}
 	if olim {
 		answer = "1" + answer
@@ -78,6 +76,6 @@ func combination(n, m int) string {
 
 func Start() {
 	fmt.Scan(&N, &M)
-	//	combination(N, M)
-	fmt.Println(calc(N, M))
+	combination(N, M)
+	fmt.Println(combi[N][M])
 }
