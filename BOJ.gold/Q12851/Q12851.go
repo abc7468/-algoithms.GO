@@ -14,16 +14,16 @@ type status struct {
 }
 
 type queue struct {
-	slice []status
+	slice []*status
 }
 
-func (q *queue) pop() status {
+func (q *queue) pop() *status {
 	val := q.slice[0]
 	q.slice = q.slice[1:]
 	return val
 }
 
-func (q *queue) push(val status) {
+func (q *queue) push(val *status) {
 	q.slice = append(q.slice, val)
 }
 
@@ -45,7 +45,7 @@ func Start() {
 	visited = make([]bool, maxVal)
 	firstStatus := status{N, 0}
 	var q queue
-	q.slice = append(q.slice, firstStatus)
+	q.slice = append(q.slice, &firstStatus)
 	var minStep int
 	var cnt int
 	for !q.isEmpty() {
@@ -60,13 +60,13 @@ func Start() {
 			cnt++
 		}
 		if nowLocation+1 < maxVal && !visited[nowLocation+1] {
-			q.push(status{nowLocation + 1, nowStep + 1})
+			q.push(&status{nowLocation + 1, nowStep + 1})
 		}
 		if nowLocation-1 >= 0 && !visited[nowLocation-1] {
-			q.push(status{nowLocation - 1, nowStep + 1})
+			q.push(&status{nowLocation - 1, nowStep + 1})
 		}
 		if nowLocation*2 < maxVal && !visited[nowLocation*2] {
-			q.push(status{nowLocation * 2, nowStep + 1})
+			q.push(&status{nowLocation * 2, nowStep + 1})
 		}
 	}
 	fmt.Println(minStep)
