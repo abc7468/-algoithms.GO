@@ -1,7 +1,7 @@
 package main
 
-import q16234 "github.com/abc7468/algorithms.GO/BOJ.gold/Q16234"
+import q20056 "github.com/abc7468/algorithms.GO/BOJ.gold/Q20056"
 
 func main() {
-	q16234.Start()
+	q20056.Start()
 }
