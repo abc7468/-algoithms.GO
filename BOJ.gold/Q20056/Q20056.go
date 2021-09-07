@@ -31,7 +31,6 @@ func goFireBall() {
 			} else if len(mmap[row][col].fireBall) == 1 {
 				nextRow := row + dr[mmap[row][col].fireBall[0].dir]*(mmap[row][col].fireBall[0].speed%N)
 				nextCol := col + dc[mmap[row][col].fireBall[0].dir]*(mmap[row][col].fireBall[0].speed%N)
-				fmt.Printf("beforeRow: %d\nbeforeCol: %d\n", nextRow, nextCol)
 				nextRow, nextCol = checkRange(nextRow, nextCol)
 				mmap[nextRow][nextCol].stack = append(mmap[nextRow][nextCol].stack, mmap[row][col].fireBall[0])
 			} else {
@@ -108,7 +107,6 @@ func checkRange(row, col int) (int, int) {
 	if col <= 0 {
 		col = col + N
 	}
-	fmt.Printf("row : %d\ncol : %d\n", row, col)
 	return row, col
 }
 
