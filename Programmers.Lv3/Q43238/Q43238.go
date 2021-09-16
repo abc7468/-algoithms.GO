@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func binarySearch(n int, times []int) int {
+func binarySearch(n int, times []int) int64 {
 	sort.Ints(times)
 	left := 1
 	right := n * times[len(times)-1]
