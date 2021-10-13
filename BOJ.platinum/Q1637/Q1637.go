@@ -47,12 +47,11 @@ func Start() {
 			right = mid
 		}
 	}
-	// if getCnt(left)%2 == 0 {
-	// 	fmt.Println("NOTHING")
-	// 	return
-	// }
-	fmt.Println(left, getCnt(left))
-	fmt.Println(getCnt(left - 1))
+	if getCnt(left)%2 == 0 {
+		fmt.Println("NOTHING")
+		return
+	}
+	fmt.Println(left, getCnt(left)-getCnt(left - 1))
 }
 func getCnt(val int) (tmp int64) {
 	tmp = 0
