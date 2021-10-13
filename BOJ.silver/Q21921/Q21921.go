@@ -30,6 +30,10 @@ func Start() {
 			cnt++
 		}
 	}
+	if max == 0{
+		fmt.Println("SAD")
+		return
+	}
 	fmt.Println(max)
 	fmt.Println(cnt)
 
