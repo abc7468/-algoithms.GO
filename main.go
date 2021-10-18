@@ -1,7 +1,7 @@
 package main
 
-import q42579 "github.com/abc7468/algorithms.GO/Programmers.Lv3/Q42579"
+import "github.com/abc7468/algorithms.GO/codingTest/test2"
 
 func main() {
-	q42579.Start()
+	test2.Start()
 }
